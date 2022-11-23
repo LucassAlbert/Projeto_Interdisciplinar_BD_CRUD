@@ -1,59 +1,39 @@
 package loja;
-
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Venda implements java.io.Serializable
 {
-
 	private static final long serialVersionUID = 1L;
 	
-	private String codigo;
-	private float valor;
-	private Calendar data;
-	
-	
-	public String getCodigo() {
-		return codigo;
-	}
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
-	public float getValor() {
-		return valor;
-	}
-	public void setValor(float valor) {
-		this.valor = valor;
-	}
-	public Calendar getData(){		return data;		}
-	public void setData(int dia, int mes, int ano) {
-		
-		this.data  = Calendar.getInstance();
-		this.data.set(Calendar.YEAR, ano);
-		this.data.set(Calendar.MONTH, mes);
-		this.data.set(Calendar.DAY_OF_MONTH, dia);
-	}
-	
-	
-	public Venda()
-	{
-		this.codigo = "";
-		this.valor = 0;
-		this.data  = Calendar.getInstance();
-	}
-	
-	public Venda(String codigo, float valor, int ano, int mes, int dia)
+	private int 	 _ID	 	 ;
+	private Vendedor _vendedor   ; 
+    private Calendar _dataCompra ;
+    public static ArrayList<Produto>_produtos  = new ArrayList<Produto>();
+
+    public Venda(int _id, Vendedor _vendedor, int ano, int mes, int dia) 
 	{
 		super();
-		this.codigo = codigo;
-		this.valor = valor;
+		this._ID       = _id	   ;
+		this._vendedor = _vendedor ;	
 		
-		this.data  = Calendar.getInstance();
-		this.data.set(Calendar.YEAR, ano);
-		this.data.set(Calendar.MONTH, mes);
-		this.data.set(Calendar.DAY_OF_MONTH, dia);
-		
+		this._dataCompra = Calendar.getInstance()		 ;
+		this._dataCompra.set(Calendar.YEAR, ano)		 ;
+		this._dataCompra.set(Calendar.MONTH, mes)		 ;
+		this._dataCompra.set(Calendar.DAY_OF_MONTH, dia) ;  
+    
 	}
-	
-	
+    public Vendedor getVendedor()                   {  return _vendedor;                    }
+    public void 	setVendedor(Vendedor _vendedor) {  this._vendedor = _vendedor;          }
+  
+    public Calendar getDataCompra() 				    {	 return _dataCompra;		  		  }
+    public void 	setDataCompra(Calendar _dataCompra) {	 this._dataCompra = _dataCompra;	  }
 
+    public ArrayList<Produto> getProduto()             {  return _produtos;                    }
+    public void    AddProduto(Produto _nameProduto)    {  this._produtos.add(_nameProduto);    }
+    public void    RemoveProduto(Produto _nameProduto) {  this._produtos.remove(_nameProduto); }
+    
+	public int  get_ID()		{	return _ID;		}
+	public void set_ID(int _ID) {	this._ID = _ID; }
+	
 }

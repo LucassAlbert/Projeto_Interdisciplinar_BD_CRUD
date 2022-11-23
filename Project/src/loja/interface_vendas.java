@@ -1,6 +1,5 @@
 package loja;
 
-
 import java.awt.EventQueue;
 import java.awt.TextField;
 
@@ -27,8 +26,14 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 
 
-public class interface_vendas extends JFrame {
+public class interface_vendas extends JFrame 
+{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -43,8 +48,6 @@ public class interface_vendas extends JFrame {
 	private JTextField textField_10;
 	private JTextField textField_11;
 	
-	
-	static RegistroVenda reg = new RegistroVenda();
 
 	/**
 	 * Launch the application.
@@ -52,7 +55,6 @@ public class interface_vendas extends JFrame {
 	public static void main(String[] args) 
 	{
 		
-		reg.carregar(reg);//Puxar arquivo salvo txt
 		
 		EventQueue.invokeLater(new Runnable() 
 		{
@@ -87,11 +89,11 @@ public class interface_vendas extends JFrame {
 		contentPane.add(tabbedPane);
 		
 		JPanel Incluir_pn = new JPanel();
-		tabbedPane.addTab("INCLUIR", null, Incluir_pn, null);
+		tabbedPane.addTab("CREATE", null, Incluir_pn, null);
 		Incluir_pn.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("INCLUIR VENDA");
-		lblNewLabel.setBounds(202, 11, 400, 77);
+		JLabel lblNewLabel = new JLabel("INCLUIR PRODUTO");
+		lblNewLabel.setBounds(176, 10, 435, 77);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 50));
 		Incluir_pn.add(lblNewLabel);
 		
@@ -113,7 +115,7 @@ public class interface_vendas extends JFrame {
 		
 		JLabel valor_txt_1 = new JLabel("DATA");
 		valor_txt_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		valor_txt_1.setBounds(263, 244, 86, 38);
+		valor_txt_1.setBounds(263, 289, 86, 38);
 		Incluir_pn.add(valor_txt_1);
 		
 		textField_1 = new JTextField();
@@ -125,49 +127,34 @@ public class interface_vendas extends JFrame {
 		textField_2 = new JTextField();
 		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		textField_2.setColumns(10);
-		textField_2.setBounds(345, 244, 33, 33);
+		textField_2.setBounds(345, 289, 33, 33);
 		Incluir_pn.add(textField_2);
 		
 		textField_3 = new JTextField();
 		textField_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		textField_3.setColumns(10);
-		textField_3.setBounds(388, 244, 33, 33);
+		textField_3.setBounds(388, 289, 33, 33);
 		Incluir_pn.add(textField_3);
 		
 		textField_4 = new JTextField();
 		textField_4.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		textField_4.setColumns(10);
-		textField_4.setBounds(433, 244, 82, 33);
+		textField_4.setBounds(433, 289, 82, 33);
 		Incluir_pn.add(textField_4);
-		
-		JButton btnCriar = new JButton("CRIAR");
-		btnCriar.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		btnCriar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e)
-			{
-				
-				//Acao aqui
-						
-				JOptionPane.showMessageDialog(null, "VENDA INCLUIDA COM SUCESSO!");
-			}
-		});
-		btnCriar.setBounds(250, 316, 145, 52);
-		Incluir_pn.add(btnCriar);
 		
 		JButton btnSalvar_1 = new JButton("SALVAR");
 		btnSalvar_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				reg.salvar(reg);
 				JOptionPane.showMessageDialog(null, "ARQUIVO SALVO COM SUCESSO!");
 			}
 		});
 		btnSalvar_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		btnSalvar_1.setBounds(433, 316, 145, 52);
+		btnSalvar_1.setBounds(327, 337, 145, 52);
 		Incluir_pn.add(btnSalvar_1);
 		
 		JPanel editar_pn = new JPanel();
-		tabbedPane.addTab("EDITAR", null, editar_pn, null);
+		tabbedPane.addTab("UPDATE", null, editar_pn, null);
 		editar_pn.setLayout(null);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("CODIGO ");
@@ -229,7 +216,8 @@ public class interface_vendas extends JFrame {
 		btnEditar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				JOptionPane.showMessageDialog(null, "VENDA EDITADA COM SUCESSO!");
+				//JOptionPane.showMessageDialog(null, "VENDA EDITADA COM SUCESSO!");
+				JOptionPane.showMessageDialog(null, textField_10.getText());
 			}
 		});
 		btnEditar.setFont(new Font("Tahoma", Font.PLAIN, 25));
@@ -240,7 +228,6 @@ public class interface_vendas extends JFrame {
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e)
 			{
-				reg.salvar(reg);
 				JOptionPane.showMessageDialog(null, "ARQUIVO SALVO COM SUCESSO!");
 			}
 		});
@@ -249,7 +236,7 @@ public class interface_vendas extends JFrame {
 		editar_pn.add(btnSalvar);
 		
 		JPanel apagar_pn = new JPanel();
-		tabbedPane.addTab("APAGAR", null, apagar_pn, null);
+		tabbedPane.addTab("DELETE", null, apagar_pn, null);
 		apagar_pn.setLayout(null);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("APAGAR VENDA");
@@ -282,7 +269,6 @@ public class interface_vendas extends JFrame {
 		btnEditar_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				reg.salvar(reg);
 				JOptionPane.showMessageDialog(null, "ARQUIVO SALVO COM SUCESSO!");
 			}
 		});
@@ -291,7 +277,7 @@ public class interface_vendas extends JFrame {
 		apagar_pn.add(btnEditar_1_1);
 		
 		JPanel listar_pn = new JPanel();
-		tabbedPane.addTab("LISTAR", null, listar_pn, null);
+		tabbedPane.addTab("READ", null, listar_pn, null);
 		TableColumn a = new TableColumn();
 		listar_pn.setLayout(null);
 		
