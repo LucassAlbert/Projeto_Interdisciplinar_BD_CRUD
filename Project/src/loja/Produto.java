@@ -6,11 +6,11 @@ public class Produto
 	private int 	 _ID				;
 	private String   _nome				;
 	private float    _preco				;
-	private long     _codigoProduto     ; 
+	private int      _codigoProduto     ; 
 	private Calendar _dataDeFabricacao	;
 	
 	
-	public Produto(int _ID, String _nome, float _preco,Long _codigoProduto, int ano, int mes, int dia ) 
+	public Produto(int _ID, String _nome, float _preco,int _codigoProduto /*, int ano, int mes, int dia */ ) 
 	{
 		super();
 		this.set_ID(_ID)	 ;
@@ -19,9 +19,9 @@ public class Produto
 		this._codigoProduto = _codigoProduto;
 		
 		this._dataDeFabricacao = Calendar.getInstance()		   ;
-		this._dataDeFabricacao.set(Calendar.YEAR, ano)		   ;
-		this._dataDeFabricacao.set(Calendar.MONTH, mes)		   ;
-		this._dataDeFabricacao.set(Calendar.DAY_OF_MONTH, dia) ;
+		//this._dataDeFabricacao.set(Calendar.YEAR, ano)		   ;
+		//this._dataDeFabricacao.set(Calendar.MONTH, mes)		   ;
+		//this._dataDeFabricacao.set(Calendar.DAY_OF_MONTH, dia) ;
 	} 
 
 	
@@ -34,8 +34,8 @@ public class Produto
 	public void setPreco(float _preco)	{		this._preco = _preco;		}
 
   
-	public long getCodigoProduto() 				         {  	return _codigoProduto;					}
-	public void setCodigoProduto(long _codigoProduto)	 {		this._codigoProduto = _codigoProduto;	}
+	public int getCodigoProduto() 				         {  	return _codigoProduto;					}
+	public void setCodigoProduto(int  _codigoProduto)	 {		this._codigoProduto = _codigoProduto;	}
 	
 
 	public Calendar getDataDeFab() 	                     {		return _dataDeFabricacao;						}

@@ -1,46 +1,31 @@
 package loja.factory;
-//CURSO https://www.youtube.com/watch?v=-2Qgpe7T5tc
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import loja.Produto;
+import loja.dao.ProdutoDAO;
+
 public class ConnectionFactory 
 {
 	//Usuario
-	private static final String DBUSERNAME = "root";
+	private static final String USERNAME = "b5eb1be4ab5892";
 	//Senha
-	private static final String DBPASSWORD = "pass";
+	private static final String PASS     = "5a6da5db";
 	//Link
-	private static final String DBURL = "jdbc:mysql:";
+	private static final String URL 	 = "jdbc:mysql://us-cdbr-east-06.cleardb.net:3306/?user=b5eb1be4ab5892";
 
 	// Metodo publico estático de conexão com banco de dados
 	public static Connection createConnectioToMySql() throws Exception 
 	{
 		// Faz com que a classe seja carregada pela JVM
-		try 
-		{
-			Class.forName("com.mysql.jdbc.Driver");
-		} 
-		catch (ClassNotFoundException e) 
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+		Class.forName("com.mysql.jdbc.Driver");
+		 
 		// Cria a conexão com banco de dados
-		try 
-		{
-			Connection connection = DriverManager.getConnection(DBURL, DBUSERNAME, DBPASSWORD);
-		} 
-		catch (SQLException e) 
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		System.out.println("");
+		Connection connection = DriverManager.getConnection(URL, USERNAME, PASS);
+		 
 		return connection;
-		
 	}
 
 	// Padrão SingleTon de projeto para garantir apenas uma conexão com o DB
