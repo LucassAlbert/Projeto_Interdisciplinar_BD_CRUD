@@ -12,7 +12,7 @@ public class ConnectionFactory
 	//Usuario
 	private static final String USERNAME = "b5eb1be4ab5892";
 	//Senha
-	private static final String PASS     = "5a6da5db";
+	private static final String PASS     = "";
 	//Link
 	private static final String URL 	 = "jdbc:mysql://us-cdbr-east-06.cleardb.net:3306/?user=b5eb1be4ab5892";
 
